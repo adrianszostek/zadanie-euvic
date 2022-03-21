@@ -5,6 +5,7 @@ class Rating extends Component {
     constructor(props) {
         super(props);
         this.highlightStars = this.highlightStars.bind(this);
+        this.sendRating = this.sendRating.bind(this);
         this.state = {
             starsHighlighted: 1,
             starsRated: 1
@@ -23,8 +24,35 @@ class Rating extends Component {
             starsHighlighted: this.state.starsRated
         });
     }
+    /* send the data after clickiing on the ith star */
+    sendRating = async (index) => {
+        this.setState({
+            starsRated: index
+        });
+        try {
+            let ratingToSend = await fetch("https://api.nfz.gov.pl/app-itl-api/version?api-version=1.3", {
+                method: "POST",
+                body: JSON.stringify({
+                    "api-version": {
+                        "major": 1,
+                        "minor": index,
+                        "patch": 0,
+                        "date-mod": "string",
+                        "deprecated": true
+                    }
+                })
+            })
+            if (ratingToSend.status === 200) {
+                console.log("Grade passed successfully");
+            } else {
+                console.log("There was a problem with sending the rating: " + ratingToSend.status);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    }
     render() {
-        /* generate the initial stars view */
+        /* generate the initial stars */
         const generateStars = () => {
             let initialStars = [
             ];
