@@ -1,7 +1,6 @@
 import Logo from './logo.js';
 import './App.css';
 import React, { Component } from 'react'
-import ProviderCard from './ProviderCard';
 import { Menu, Search, AccountCircle } from '@mui/icons-material'
 
 class App extends Component {
