@@ -134,6 +134,7 @@ div.provider-card .provider-additional-info > svg {
 div.provider-rating {
   display: flex;
   height: fit-content;
+  cursor: pointer;
 }
 
 div.provider-rating ul { 

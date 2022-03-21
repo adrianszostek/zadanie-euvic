@@ -17,6 +17,12 @@ class Rating extends Component {
             starsHighlighted: index
         });
     }
+    /* resetting the visual representation of the rating when the mouse left the rating area */
+    resetStars = () => {
+        this.setState({
+            starsHighlighted: this.state.starsRated
+        });
+    }
     render() {
         /* generate the initial stars view */
         const generateStars = () => {
@@ -26,7 +32,9 @@ class Rating extends Component {
                 initialStars.push(
                     <li key={i}
                         className={this.state.starsHighlighted >= i ? 'starHighlighted' : 'starEmpty'}
-                        onMouseEnter={() => this.highlightStars(i)} >
+                        onMouseEnter={() => this.highlightStars(i)}
+                        onMouseLeave={() => this.resetStars()}
+                        onClick={() => this.sendRating(i)}>
                         <StarRate />
                         <StarRateOutlined />
                     </li>
