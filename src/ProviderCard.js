@@ -4,6 +4,7 @@ import React, { Component } from "react";
 class ProviderCard extends Component {
 
     render() {
+        const provider = this.props.providerData;
         return (
             <div className="provider-area">
                 <div className="provider-card">

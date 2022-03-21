@@ -22,6 +22,10 @@ class App extends Component {
       )
   }
   render() {
+    /* generate the containers for each provider */
+    let cards = this.state.providers.map(providerData => {
+      return <ProviderCard key={providerData.id} providerData={providerData.attributes} />
+    });
     return (
       <div className="app">
         <header className="app-header">
