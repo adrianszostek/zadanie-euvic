@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ChildCare, Elevator, LocalParking, Wc } from '@mui/icons-material';
+import Rating from "./Rating";
 
 
 class ProviderCard extends Component {
@@ -27,6 +28,7 @@ class ProviderCard extends Component {
                                 <p className='provider-name-title'>{provider.benefit}</p>
                                 <p className='provider-name-subtitle'>{provider.provider}</p>
                             </div>
+                            <Rating />
                         </div>
                         <div className='provider-place-and-services'>
                             <div className='provider-place'>

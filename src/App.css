@@ -131,6 +131,20 @@ div.provider-card .provider-additional-info > svg {
 }
 
 
+div.provider-rating {
+  display: flex;
+  height: fit-content;
+}
+
+div.provider-rating ul { 
+  display: flex;
+  margin: 0;
+  padding: 0; }
+
+div.provider-rating li {
+  display: inline-block;
+}
+
 
 /* default styles */
 p {
