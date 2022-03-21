@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { ChildCare, Elevator, LocalParking, Wc } from '@mui/icons-material';
 
 
 class ProviderCard extends Component {
@@ -24,6 +25,12 @@ class ProviderCard extends Component {
                                 <p>
                                     {provider.place}<br />{provider.address}<br />{provider.locality}
                                 </p>
+                            </div>
+                            <div className='provider-additional-info'>
+                                {provider.toilet === "Y" && <Wc />}
+                                {provider["benefits-for-children"] === "Y" && <ChildCare />}
+                                {provider.elevator === "Y" && <Elevator />}
+                                {provider["car-park"] === "Y" && <LocalParking />}
                             </div>
                         </div>
                     </div>
